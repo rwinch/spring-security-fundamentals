@@ -5,16 +5,15 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-  <!-- <security:http security="none" pattern="/resources/**"/> -->
+  <security:http security="none" pattern="/resources/**"/>
   <security:http use-expressions="true">
     <security:intercept-url pattern="/login"
         access="permitAll"/>
     <security:intercept-url
         pattern="/**"
         access="hasRole('ROLE_USER')"/>
-    <security:form-login/>
-    <!-- <security:form-login login-page="/login"
-        authentication-failure-url="/login?error"/> -->
+    <security:form-login login-page="/login"
+        authentication-failure-url="/login?error"/>
     <!-- <security:logout/> -->
   </security:http>
 
